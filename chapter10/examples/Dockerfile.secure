@@ -1,0 +1,5 @@
+FROM python:3.12-slim
+RUN useradd --create-home --uid 1000 appuser
+COPY --chown=appuser:appuser app.py /app.py
+USER appuser
+CMD ["python", "/app.py"]

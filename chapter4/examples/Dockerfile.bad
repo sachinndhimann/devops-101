@@ -1,0 +1,7 @@
+FROM python:latest
+ENV API_KEY=sk-super-secret-do-not-do-this
+RUN apt-get update && apt-get install -y curl vim git
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+CMD python app.py

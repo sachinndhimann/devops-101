@@ -1,0 +1,6 @@
+# BAD: source copied before dependency install invalidates the cache
+# on every single code change, even though dependencies never changed.
+FROM alpine:3.20
+COPY src/app.py /app.py
+RUN apk add --no-cache curl
+CMD ["cat", "/app.py"]
